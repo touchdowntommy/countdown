@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <link href="styles.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<header id="Title">Countdown to Thanksgiving!</header>
+
+<body>
+        <nav id="Links">
+            <ul>
+                <li><a href="#thing1">What to look forward to</a></li>
+                <li><a href="#thing2">Why I’m Excited</a></li>
+                <li><a href="#thing3">How to get involved</a></li>
+                <li><a href="#timer">Countdown Timer</a></li>
+            </ul>
+            </nav>
+            
+            
+            <div id="content">
+                <h1 id="thing1">What I’m Looking Forward To</h1>
+                <p>The thing I’m looking forward to is Thanksgiving. Thanksgiving is a top 3 holiday and has been around since 1621.
+                    Thanksgiving is also during a good time of year where the weather is the best. My family from all over comes to
+                    Thanksgiving and that's the only time I get to see them. I can’t wait to bust down on some turkey and chuck some
+                    hogskin in the backyard.</p>
+                <img src="images/freebird.jpg">
+            
+                <br>
+            
+                <h1 id="thing2">Why I’m Excited</h1>
+                <p>I’m most excited about the food. My dad, uncle, and I fry the turkey. We have perfected the recipe over many
+                    generations. My family actually likes the turkey and doesn’t have to pretend it isn’t dry as hell. I also get to
+                    watch the movie Freebird. It’s the best Thanksgiving movie ever made and because he goes back to the first
+                    Thanksgiving to get turkey off the menu.</p>
+                <img src="images/familyguy.jpg">
+                <br>
+            <h1 id="thing3">How Others Can Get Involved</h1>
+            <p>You can get involved by helping your family cook instead of being a bum. Cooking isn’t hard, you just have to know
+                what you are doing. Also talk to your family instead of eating and going back to your room. Also watch Freebrid as
+                many times as you can. It's really good I promise. Lastly, eat more food than your father to show that you are the
+                dominant male in the household. </p>
+            <img src="images/thanksgiving.webp">
+            <br>
+            
+                <h1 id="timer">Timer</h1>
+                <p id="countdown">Timer here</p>
+            <img src="images/terraria.jpg" >
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <footer>
+            <a href="#Title">Back to top</a>
+        </footer>
+
+        <script>
+            // Thanksgiving date (adjust to the correct date each year)
+            const thanksgivingDate = new Date('November 28, 2024 00:00:00').getTime();
+
+            // Countdown function
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = thanksgivingDate - now;
+
+                // Time calculations
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the countdown
+                document.getElementById("countdown").innerHTML = "Time until thanksgiving: " +
+                    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+                // Stop countdown when the date has passed
+                if (distance < 0) {
+                    document.getElementById("countdown").innerHTML = "Happy Thanksgiving!";
+                }
+
+                console.log("updated")
+            }
+
+            // Update countdown every second
+            setInterval(updateCountdown, 1000);
+            console.log("updated")
+        </script>
+    </body>
+    
+    
+    </html>

@@ -13,6 +13,7 @@
 
 <body>
         <nav id="Links">
+            <!--  links to content -->
             <ul>
                 <li><a href="#thing1">What to look forward to</a></li>
                 <li><a href="#thing2">Why I’m Excited</a></li>
@@ -21,7 +22,7 @@
             </ul>
             </nav>
             
-            
+            <!-- content -->
             <div id="content">
                 <h1 id="thing1">What I’m Looking Forward To</h1>
                 <p>The thing I’m looking forward to is Thanksgiving. Thanksgiving is a top 3 holiday and has been around since 1621.
@@ -46,7 +47,8 @@
                 dominant male in the household. </p>
             <img src="images/thanksgiving.webp">
             <br>
-            
+                
+                <!-- timer-->
                 <h1 id="timer">Timer</h1>
                 <p id="countdown">Timer here</p>
             <img src="images/terraria.jpg" >
@@ -60,35 +62,34 @@
         </footer>
 
         <script>
-            // Thanksgiving date (adjust to the correct date each year)
             const thanksgivingDate = new Date('November 28, 2024 00:00:00').getTime();
 
-            // Countdown function
+            // update function
             function updateCountdown() {
+
                 const now = new Date().getTime();
-                const distance = thanksgivingDate - now;
 
-                // Time calculations
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                // time difference
+                const difference = thanksgivingDate - now;
 
-                // Display the countdown
+                // get days hours and minuts from difference
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                
+                // the text
                 document.getElementById("countdown").innerHTML = "Time until thanksgiving: " +
                     days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
-                // Stop countdown when the date has passed
-                if (distance < 0) {
+                //when countdown reaches zero
+                if (difference < 0) {
                     document.getElementById("countdown").innerHTML = "Happy Thanksgiving!";
                 }
-
-                console.log("updated")
             }
 
-            // Update countdown every second
+            // run update
             setInterval(updateCountdown, 1000);
-            console.log("updated")
         </script>
     </body>
     
